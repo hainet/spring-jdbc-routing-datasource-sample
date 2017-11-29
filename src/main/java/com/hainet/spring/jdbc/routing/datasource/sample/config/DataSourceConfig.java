@@ -39,12 +39,12 @@ public class DataSourceConfig {
     @Bean
     @Primary
     @DependsOn({"master", "slave"})
-    public DataSource routingDataSource() {
+    public DataSource routingDataSource(final DataSource master, final DataSource slave) {
         RoutingDataSource routingDataSource = new RoutingDataSource();
         routingDataSource.setTargetDataSources(new HashMap<Object, Object>() {{
             {
-                put("master", master());
-                put("slave", slave());
+                put("master", master);
+                put("slave", slave);
             }
         }});
         routingDataSource.afterPropertiesSet();
