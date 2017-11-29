@@ -20,13 +20,13 @@ public class SpringJdbcRoutingDatasourceSampleApplication implements CommandLine
     @Override
     public void run(final String... args) throws Exception {
         // master
-        Person master = new Person();
+        final Person master = new Person();
         master.setName("person");
         service.insert(master);
         service.findAll().forEach(System.out::println);
 
         // slave
-        Person slave = new Person();
+        final Person slave = new Person();
         slave.setName("person");
         service.insertWithReadOnly(slave);
         service.findAllWithReadOnly().forEach(System.out::println);

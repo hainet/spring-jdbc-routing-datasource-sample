@@ -40,7 +40,7 @@ public class DataSourceConfig {
     @Primary
     @DependsOn({"master", "slave"})
     public DataSource routingDataSource(final DataSource master, final DataSource slave) {
-        RoutingDataSource routingDataSource = new RoutingDataSource();
+        final RoutingDataSource routingDataSource = new RoutingDataSource();
         routingDataSource.setTargetDataSources(new HashMap<Object, Object>() {{
             {
                 put("master", master);
