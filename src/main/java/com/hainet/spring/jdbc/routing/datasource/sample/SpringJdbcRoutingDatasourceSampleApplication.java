@@ -18,7 +18,7 @@ public class SpringJdbcRoutingDatasourceSampleApplication implements CommandLine
     private final PersonService service;
 
     @Override
-    public void run(final String... args) throws Exception {
+    public void run(final String... args) {
         // master
         final Person master = new Person();
         master.setName("person");
